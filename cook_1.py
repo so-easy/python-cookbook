@@ -2,7 +2,6 @@
 # _*_ coding: utf-8 _*_
 '''
 #
-#
 # python cookbook 第一章 文本
 # Writer：hello_hanjx@163.com
 # Date：2014-07-01
@@ -122,3 +121,19 @@ def isStringLike(obj):
     except: return False
     else: return True
 #此函数比isAString函数要慢的多而且复杂，但是适用于UserString（以及其他的类字符串的类型）的实例，也适用于str和unicode
+'''
+1.4 字符串对齐
+'''
+print '|','hej'.ljust(20),'|','hej'.rjust(20),'|','hej'.center(20),'|'
+#| hej                  |                  hej |         hej          |
+print 'hej'.center(6, '+')
+#+hej++
+'''
+1.5 去除字符串两端的空格
+'''
+x = ' easy '
+print '|',x.lstrip(),'|',x.rstrip(),'|',x.strip(),'|'
+#替换字符，删除指定字符
+str2 = 'xyz12345xyz'
+print(str2.lstrip('xyz')+'|'+str2.rstrip('xyz')+'|'+str2.strip('xyz'))
+#   12345xyz|xyz12345|12345
