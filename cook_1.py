@@ -161,3 +161,42 @@ import operator
 largeString = reduce(operator.add, pieces, '')
 #python中字符串对象是不可改变的，任何对字符串的操作，包括字符串的拼接都将产生一个新的字符串对象
 #而不是修改原有的对象。因此拼接N个字符串将涉及创建并丢弃N-1个中间结果
+
+'''
+1.7 将字符串逐字符或逐词反转
+'''
+#字符串无法改变，所以，反转一个字符串需要创建一个拷贝。最简单的方法是使用一种步长为-1的切片方法
+astring = 'abcdefg'
+revchars = astring[::-1]
+print astring
+print revchars
+#按照单词反转字符串。先创建一个单词列表，然后将列表反转，然后join合并，并且插入空格
+astring = 'My name is easy'
+revwords = astring.split() #字符串->单词列表
+print revwords
+#['My', 'name', 'is', 'easy']
+revwords.reverse() #反转列表
+revwords = ' '.join(revwords) #单词列表->字符串
+print revwords
+#['easy', 'is', 'name', 'My']
+#也可以这样写
+revwords = ' '.join(astring.split()[::-1])
+print revwords
+##正则表达式
+import re
+revwords = re.split(r'(\s+)', astring)
+revwords.reverse()
+revwords = ' '.join(revwords)
+#或者
+revwords = ' '.join(re.split(r'(\s+)', astring)[::-1])
+
+'''
+1.7.1列表排序
+'''
+listTmp = [3,1,2,8,4]
+listTmp.sort(reverse=True)
+print listTmp
+#[8, 4, 3, 2, 1]
+listTmp.sort()
+print listTmp
+#[1, 2, 3, 4, 8]
