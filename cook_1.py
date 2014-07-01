@@ -96,3 +96,29 @@ print map(chr,range(97,100))
 #['a', 'b', 'c']
 print '',join(map(chr,range(97,100)))
 #abc
+'''
+1.3 测试一个对象是否是类字符串
+'''
+def isAString(obj):
+    return isinstance(obj, basestring)
+print isAString('aaa')
+#True
+print isAString(123)
+#False
+'''
+s为字符串
+s.isalnum() 所有字符都是数字或者字母
+s.isalpha() 所有字符都是字母
+s.isdigit() 所有字符都是数字
+s.islower() 所有字符都是小写
+s.isupper() 所有字符都是大写
+s.istitle() 所有单词都是首字母大写，像标题
+s.isspace() 所有字符都是空白字符、 、、
+'''
+#isAString函数无法检测UserString模块提供的UserString类的实例，因为UserString不是从basestring类派生的
+#如果想坚持这种类型，可以直接检查一个对象的行为是否真的像字符串一样
+def isStringLike(obj):
+    try: obj + ''
+    except: return False
+    else: return True
+#此函数比isAString函数要慢的多而且复杂，但是适用于UserString（以及其他的类字符串的类型）的实例，也适用于str和unicode
