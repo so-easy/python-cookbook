@@ -3,7 +3,8 @@
 '''
 #
 # python cookbook 第一章 文本
-# Writer：hello_hanjx@163.com
+# Writer：xin.change.the.world@gmail.com
+# edit：hello_hanjx@163.com
 # Date：2014-07-01
 # github: https://github.com/so-easy/python-cookbook
 #
