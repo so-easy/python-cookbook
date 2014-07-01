@@ -74,3 +74,25 @@ print ''.join(maginc_chars)
 print ''.join(magic_chars & magic_chars2)
 #ced
 
+'''
+1.2 字符和字符值之间的转换
+'''
+#将一个字符转化为相应的ASC（ISO）或者Unicode码，或者反其道而行之
+#这正是内建函数ord和chr擅长的任务
+print ord('a')
+#97
+print ord('b')
+#98
+print chr(97)
+#a
+print ord(u'\u2020')
+#8224
+print repr(unichr(8224))
+#把一个字符串转化为一个包含各个字符串值的列表，可以用map和ord函数
+print map(ord,'easy')
+#[101, 97, 115, 121]
+#字符值转字符列表和字符串
+print map(chr,range(97,100))
+#['a', 'b', 'c']
+print '',join(map(chr,range(97,100)))
+#abc
