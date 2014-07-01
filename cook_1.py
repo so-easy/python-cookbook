@@ -137,3 +137,27 @@ print '|',x.lstrip(),'|',x.rstrip(),'|',x.strip(),'|'
 str2 = 'xyz12345xyz'
 print(str2.lstrip('xyz')+'|'+str2.rstrip('xyz')+'|'+str2.strip('xyz'))
 #   12345xyz|xyz12345|12345
+#另外要去除的子串也可以用正则表达式来写，从而去除某一类型的字串：
+ss = '123woshi233'
+print ss.strip('[123456789]')
+#woshi
+'''
+1.6 合并字符串
+'''
+#将一个字符串列表合并成一个字符串
+pieces = ['a','b','c']
+largeString = ''.join(pieces)
+s1 = 'a'
+s2 = 'b'
+s3 = 'c'
+lasgeString = '%s%s sasdf dsafgasdfg asdf %s' % (s1, s2, s3)
+#一些看似不错却效率低的做法
+largeString = s1 + s2 + s3
+
+for piece in pieces:
+    largeString +=piece
+
+import operator
+largeString = reduce(operator.add, pieces, '')
+#python中字符串对象是不可改变的，任何对字符串的操作，包括字符串的拼接都将产生一个新的字符串对象
+#而不是修改原有的对象。因此拼接N个字符串将涉及创建并丢弃N-1个中间结果
